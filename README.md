@@ -1,4 +1,4 @@
-#guacamole
+# guacamole
 `guacamole` is a collection of tools we use at Khan Academy to train our models
 from new data on a regular basis. These tools are meant to be compatible
 with a variety of data formats from anyone who has learning data - especially
@@ -17,9 +17,9 @@ have that data (coming soon). The MIRT model is well suited to testing data (at 
 #### **guacamole** is a useful tool for teachers and researchers to analyze and improve test items and students.
 
 ## getting started
-###Getting guacamole to run:
+### Getting guacamole to run:
 
-####Get numpy, scipy, and matplotlib working
+#### Get numpy, scipy, and matplotlib working
 There are several strategies for this, depending on platform.
 
 The normal and generally correct way to install Python libraries is using `pip`, but that often chokes on each of these. If installing with `pip` doesn't work, I recommend using the [Scipy Superpack](http://fonnesbeck.github.io/ScipySuperpack/) for Mac, or following the [SciPy Stack installation instructions](http://www.scipy.org/install.html) for Linux or Windows. For a heavier-weight but easy alternative, you can try [Anaconda](https://store.continuum.io/cshop/anaconda/).
@@ -75,7 +75,7 @@ It should look something like
 
 These columns are name, exercise, time_taken, and correct. You can read more about data formats in `train_util/model_training_util.py`
 
-###Train a model
+### Train a model
 
 You can train a model on data with
 
@@ -90,11 +90,11 @@ This will run for a while. If you want it to go faster, you can parallelize with
 
 Now that your model is trained, it's in `sample_data/models/model.json`. You can actually use this model to run an adaptive test now, or you can examine it in a more readable format. If you want to save your model somewhere else, send in `-m desired/model/file.json`.
 
-###Examining Models
+### Examining Models
 
 There are a few ways to examine a model and evaluate how good it is.
 
-####Report
+#### Report
 The simplest is to run
 
 `./start_mirt_pipeline.py --report`
@@ -115,14 +115,14 @@ This prints out a formatted view of your exercises.
 
 For more information on what these terms mean, check out [IRT on Wikipedia](https://en.wikipedia.org/wiki/Item_response_theory).
 
-####ROC Curve
+#### ROC Curve
 An [ROC curve](http://en.wikipedia.org/wiki/Receiver_operating_characteristic) is a simple way of comparing models for predictive accuracy when there are binary classifications. When we train a model, we hold out a test set, and the ROC goes through that set of assessment and makes predictions about the accuracy of users on random questions. To see a ROC curve, run
 
 `./start_mirt_pipeline.py --roc_viz`
 
 This will take a bit of time, as it simulates generating a ROC curve from your test data.
 
-####Problems
+#### Problems
 
 The model used for each problem can be thought of as a model meant to predict the probability that a student will answer that problem correctly given their ability. Running
 
@@ -131,7 +131,7 @@ The model used for each problem can be thought of as a model meant to predict th
 gives you a visualization of each problem in that context.
 
 
-###Scoring
+### Scoring
 
 So scoring here is relative - we don't give anything on a score of 0-100. Instead, we give the mean of the student's estimated ability, which should have a mean around 0 and be approximately normally distributed.
 
